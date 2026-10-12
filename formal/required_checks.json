@@ -1,0 +1,97 @@
+[
+  {
+    "model": "formal/models/authentication.spthy",
+    "lemma": "cache_key_origin",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/authentication.spthy",
+    "lemma": "revocation_key_origin",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/authentication.spthy",
+    "lemma": "state_token_consumption_unique",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/authentication.spthy",
+    "lemma": "request_credential_origin",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/authentication.spthy",
+    "lemma": "exists_accept_honest",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/authentication.spthy",
+    "lemma": "accept_implies_authorized",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/authentication.spthy",
+    "lemma": "session_agreement",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/authentication.spthy",
+    "lemma": "session_accept_is_injective",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/authentication.spthy",
+    "lemma": "no_cross_domain_substitution",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/authentication.spthy",
+    "lemma": "no_accept_after_known_revocation",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/authentication.spthy",
+    "lemma": "unconditional_authentication_negative_control",
+    "expected_status": "counterexample"
+  },
+  {
+    "model": "formal/models/claim_semantics.spthy",
+    "lemma": "exists_classical_hybrid",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/claim_semantics.spthy",
+    "lemma": "downgrade_claim_safety",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/claim_semantics.spthy",
+    "lemma": "pq_claim_requires_pq_authentication",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/rotation.spthy",
+    "lemma": "state_token_consumption_unique",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/rotation.spthy",
+    "lemma": "exists_rotation",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/rotation.spthy",
+    "lemma": "rollback_rejected",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/rotation.spthy",
+    "lemma": "no_accept_after_known_revocation",
+    "expected_status": "verified"
+  },
+  {
+    "model": "formal/models/rotation.spthy",
+    "lemma": "exists_rejected_replay",
+    "expected_status": "verified"
+  }
+]

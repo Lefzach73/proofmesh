@@ -1,0 +1,17 @@
+theory ProofMeshClaimSemantics
+begin
+// Profiles are labels, not a proof of computational ML-KEM or ML-DSA security.
+rule Classical:
+ [ ] --[ Validated('classical'), Claim('classical','false') ]-> [ ]
+rule HybridKEXClassicalAuthentication:
+ [ ] --[ Negotiated('X25519MLKEM768'),Validated('classical'),Claim('classical','false') ]-> [ ]
+rule SeparatePQMechanism:
+ [ ] --[ Validated('pq-signature'),Claim('pq-signature','true') ]-> [ ]
+lemma exists_classical_hybrid:
+ exists-trace
+ "Ex #i. Negotiated('X25519MLKEM768')@i & Claim('classical','false')@i"
+lemma downgrade_claim_safety:
+ "All #i. Claim('classical','true')@i ==> F"
+lemma pq_claim_requires_pq_authentication:
+ "All profile #i. Claim(profile,'true')@i ==> Validated('pq-signature')@i"
+end

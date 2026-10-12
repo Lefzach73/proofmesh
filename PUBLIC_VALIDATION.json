@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "date": "2026-10-12",
+  "source_commit": "c9fd0579b280dad65c41d6f631c6225b654fd834",
+  "environment": {
+    "os": "macOS",
+    "architecture": "arm64",
+    "go": "1.27.2",
+    "python": "3.14.3"
+  },
+  "checks": [
+    {
+      "command": "make test",
+      "status": "PASS",
+      "go_tested_packages": 6,
+      "python_checks": 23
+    },
+    {
+      "command": "make race",
+      "status": "PASS",
+      "go_tested_packages": 6
+    },
+    {
+      "command": "make demo",
+      "status": "PASS"
+    },
+    {
+      "command": "make restart-demo",
+      "status": "PASS"
+    },
+    {
+      "command": "make bench-offline report",
+      "status": "PASS",
+      "schedules": 81,
+      "families": 27,
+      "raw_rows": 3159,
+      "failed_runs": 0,
+      "raw_sha256": "72dfd2468e322168cb136d76b24a4751b8c3db58f5be3fdd828bc317bfa6b524",
+      "matches_original": true
+    },
+    {
+      "command": "make fuzz",
+      "status": "PASS",
+      "identity_executions": 1096288,
+      "simulator_executions": 308696
+    },
+    {
+      "command": "go vet ./...",
+      "status": "PASS"
+    },
+    {
+      "command": "go -C integration/spiffe test -run '^$' ./...",
+      "status": "PASS",
+      "scope": "compile-only; no integration tests executed"
+    },
+    {
+      "command": "public export admission controls",
+      "status": "PASS",
+      "cases": 6
+    }
+  ],
+  "hosted_ci": "not asserted by this local receipt; inspect actual public repository Actions",
+  "formal_proofs": "not run for this public export; formal runner software controls use stubs",
+  "full_private_study": "not exported or revalidated by this public suite",
+  "log_hashes": {
+    "core.log": "4243868e5fe5724545ae9fa68f256114af9ab4184bc5613ac02694e9274052b3",
+    "export-controls-before-fix.json": "a7b2a60e96c125149af13c978884aad13f153e1f4baed49235fd566910d8f2b4",
+    "export-controls.json": "a46d8e0ce265141755e4c0bddb6d953332f1faebcf4f4f984ba611671f1c9d57",
+    "fuzz.log": "a354637f55c55d1e84498b7fd4dbd6fce7c282f00cb7bc7c8d6bad32bb919cc9",
+    "integration-compile.log": "d3086febce2067f8427f8acaedb95f51d856ee9bd975490394825f0b45dd7235",
+    "vet.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,595 @@
+{
+  "approval_required": "Human research lead preregistration and independently reviewed labels before confirmatory held-out study",
+  "exclusions": [
+    "F18 unavailable synthetic PQ credential verification: truth null"
+  ],
+  "families": 27,
+  "files": [
+    {
+      "family_id": "F01",
+      "path": "scenarios/dev/F01_s17.json",
+      "seed": 17,
+      "sha256": "91c94a81d900591beb3d59272be2675123a19a4f258f2d9eae91c5ee56a3b073",
+      "split": "dev"
+    },
+    {
+      "family_id": "F01",
+      "path": "scenarios/dev/F01_s42.json",
+      "seed": 42,
+      "sha256": "195dfb2909dd395c58fa3ff9c923861b0bc57a72c1a93133f1abda1febf54589",
+      "split": "dev"
+    },
+    {
+      "family_id": "F01",
+      "path": "scenarios/dev/F01_s101.json",
+      "seed": 101,
+      "sha256": "a7a3e8ee653eb6ae9205da1c8d00579e58605a06ec92179095d36ae448d58db2",
+      "split": "dev"
+    },
+    {
+      "family_id": "F02",
+      "path": "scenarios/dev/F02_s17.json",
+      "seed": 17,
+      "sha256": "ad73939b10935fc0fcb3b8766a43e54fcc9b741c268e7b7c71b280cd8d7accc0",
+      "split": "dev"
+    },
+    {
+      "family_id": "F02",
+      "path": "scenarios/dev/F02_s42.json",
+      "seed": 42,
+      "sha256": "e134e21bf8e3006434fc0b5936aa10cb09eb77bef35bb18833ee9c657c4da762",
+      "split": "dev"
+    },
+    {
+      "family_id": "F02",
+      "path": "scenarios/dev/F02_s101.json",
+      "seed": 101,
+      "sha256": "984bc662ce9360435ab9aa9d7bed91e88aad7269b53ff0e213adb6d6ad8bc9b5",
+      "split": "dev"
+    },
+    {
+      "family_id": "F03",
+      "path": "scenarios/dev/F03_s17.json",
+      "seed": 17,
+      "sha256": "8c8f3b7797124f3fc8f2fc7f78f42db752728b1e00a6645a7602ed81a0efe345",
+      "split": "dev"
+    },
+    {
+      "family_id": "F03",
+      "path": "scenarios/dev/F03_s42.json",
+      "seed": 42,
+      "sha256": "8b28e9ba5ee46cd5c68d15b84fdb7854a31ca6619caeaa6fb6dc0db0f8306060",
+      "split": "dev"
+    },
+    {
+      "family_id": "F03",
+      "path": "scenarios/dev/F03_s101.json",
+      "seed": 101,
+      "sha256": "4f09fb1923712262951995f92f3f160f92d575b9393b4cea62569a533b1daea9",
+      "split": "dev"
+    },
+    {
+      "family_id": "F04",
+      "path": "scenarios/dev/F04_s17.json",
+      "seed": 17,
+      "sha256": "2fa6d9f31a3da485209c967da809b657f05df6aa2123a11c12c4e3c32dfc193a",
+      "split": "dev"
+    },
+    {
+      "family_id": "F04",
+      "path": "scenarios/dev/F04_s42.json",
+      "seed": 42,
+      "sha256": "6ab008ec532b2309d09d774eaf0363b63782f192e09291d88efc5cea51a09d56",
+      "split": "dev"
+    },
+    {
+      "family_id": "F04",
+      "path": "scenarios/dev/F04_s101.json",
+      "seed": 101,
+      "sha256": "7c45d1c622f589c01187fd71877b60e29aa5e5d504dd19e636253de697bd6a07",
+      "split": "dev"
+    },
+    {
+      "family_id": "F05",
+      "path": "scenarios/dev/F05_s17.json",
+      "seed": 17,
+      "sha256": "0498765d75383446a9475753ec2cbb67a78264768394bb1cbc6af7acba3e2e5f",
+      "split": "dev"
+    },
+    {
+      "family_id": "F05",
+      "path": "scenarios/dev/F05_s42.json",
+      "seed": 42,
+      "sha256": "966e3a4964b21a5d296cdee202417c2fe53d22877176a7828e548a9f413866f9",
+      "split": "dev"
+    },
+    {
+      "family_id": "F05",
+      "path": "scenarios/dev/F05_s101.json",
+      "seed": 101,
+      "sha256": "c48994a3a36bca24d9a2b0cd67719dc393c34247ca73103f0eb953f00638639f",
+      "split": "dev"
+    },
+    {
+      "family_id": "F06",
+      "path": "scenarios/dev/F06_s17.json",
+      "seed": 17,
+      "sha256": "30505dba10841695432a0fb14ef1d0a9c871c689cb426f64c9fd4501e469bd70",
+      "split": "dev"
+    },
+    {
+      "family_id": "F06",
+      "path": "scenarios/dev/F06_s42.json",
+      "seed": 42,
+      "sha256": "a29e0030dd7688785fdd575729431d99fe12677b05b11bc2fa15d93b8f689dbc",
+      "split": "dev"
+    },
+    {
+      "family_id": "F06",
+      "path": "scenarios/dev/F06_s101.json",
+      "seed": 101,
+      "sha256": "cdf1e56c97f0a3a1a4cc744c5b6dc42bb688027cf13f620277f2d5ad9c41fe23",
+      "split": "dev"
+    },
+    {
+      "family_id": "F07",
+      "path": "scenarios/dev/F07_s17.json",
+      "seed": 17,
+      "sha256": "ba3cfb7cf630ee65793a38f19c3428cb715ff1fb029ea1cb7f752e407d9d9490",
+      "split": "dev"
+    },
+    {
+      "family_id": "F07",
+      "path": "scenarios/dev/F07_s42.json",
+      "seed": 42,
+      "sha256": "7c3080a433f74c8bab339a035de6d98d24d73cabae9477e12d4b14456d7b19fa",
+      "split": "dev"
+    },
+    {
+      "family_id": "F07",
+      "path": "scenarios/dev/F07_s101.json",
+      "seed": 101,
+      "sha256": "9c2b6b92e0c39a48526675eb9c5c2d574f335fb5ad786a555015246f318e5bc2",
+      "split": "dev"
+    },
+    {
+      "family_id": "F08",
+      "path": "scenarios/dev/F08_s17.json",
+      "seed": 17,
+      "sha256": "554865c56561ed55c34e7a8095b932d76e23307a800c7360a94c6ec720d2a265",
+      "split": "dev"
+    },
+    {
+      "family_id": "F08",
+      "path": "scenarios/dev/F08_s42.json",
+      "seed": 42,
+      "sha256": "f3ef16973cafe2d19735c0e141504162024269445f10913123deaedbd6030f04",
+      "split": "dev"
+    },
+    {
+      "family_id": "F08",
+      "path": "scenarios/dev/F08_s101.json",
+      "seed": 101,
+      "sha256": "4719ccfc2d702ecd0e18d6c2152f2b758f7f10f739448f2e1ab5d871249271f1",
+      "split": "dev"
+    },
+    {
+      "family_id": "F09",
+      "path": "scenarios/dev/F09_s17.json",
+      "seed": 17,
+      "sha256": "3a44f59213a723c4fc97d281b72e671aa1a96ad184f26954e561cf092aeed308",
+      "split": "dev"
+    },
+    {
+      "family_id": "F09",
+      "path": "scenarios/dev/F09_s42.json",
+      "seed": 42,
+      "sha256": "a9512e3d4a49093e592b6e4bc8166f569efcc92800e02c4c96cf169f0d5670ad",
+      "split": "dev"
+    },
+    {
+      "family_id": "F09",
+      "path": "scenarios/dev/F09_s101.json",
+      "seed": 101,
+      "sha256": "6c10f21206132ad8f7292644387c916fc13d16495ecc90b9940708231d6f7d1d",
+      "split": "dev"
+    },
+    {
+      "family_id": "F10",
+      "path": "scenarios/dev/F10_s17.json",
+      "seed": 17,
+      "sha256": "7c1c453792bb5b158ba4604d13a00d4547fe1c2ab9f99c7eb5be0d32ec224194",
+      "split": "dev"
+    },
+    {
+      "family_id": "F10",
+      "path": "scenarios/dev/F10_s42.json",
+      "seed": 42,
+      "sha256": "4b2f3140ce27dba252a0626d8ddbb32adf229fd16739529ac8586cc13fcef9da",
+      "split": "dev"
+    },
+    {
+      "family_id": "F10",
+      "path": "scenarios/dev/F10_s101.json",
+      "seed": 101,
+      "sha256": "c8a413361f2fbbc1a53f72dd69642ff9c9bbab09563194cbdd85e568c764f8f1",
+      "split": "dev"
+    },
+    {
+      "family_id": "F11",
+      "path": "scenarios/dev/F11_s17.json",
+      "seed": 17,
+      "sha256": "bce6d81ca2e3ce59b79ddc510a37f4f07728eaa8cbc9e776c74e46caaeb2f851",
+      "split": "dev"
+    },
+    {
+      "family_id": "F11",
+      "path": "scenarios/dev/F11_s42.json",
+      "seed": 42,
+      "sha256": "2129bf4f18e7dded607f743aef3176283b60b8a8759b637d8947ce42f036f6d3",
+      "split": "dev"
+    },
+    {
+      "family_id": "F11",
+      "path": "scenarios/dev/F11_s101.json",
+      "seed": 101,
+      "sha256": "9e08e8d1b94c36ddbf212d9d54edb6e83ce1501fe3ed3f29169fee3a00c5df06",
+      "split": "dev"
+    },
+    {
+      "family_id": "F12",
+      "path": "scenarios/dev/F12_s17.json",
+      "seed": 17,
+      "sha256": "eead3d8a5d8fb005610eb62361f1e407e2acc548866fc670ec14f99b59b57990",
+      "split": "dev"
+    },
+    {
+      "family_id": "F12",
+      "path": "scenarios/dev/F12_s42.json",
+      "seed": 42,
+      "sha256": "7200c755cf497a792f1bbc3c0560db25b8906be11828c80630db5fa4d02a3f14",
+      "split": "dev"
+    },
+    {
+      "family_id": "F12",
+      "path": "scenarios/dev/F12_s101.json",
+      "seed": 101,
+      "sha256": "16e66dc25aae8013a0de9b1512a966af60ffbd5d9a5f4961742f52cd0aaf2c5a",
+      "split": "dev"
+    },
+    {
+      "family_id": "F13",
+      "path": "scenarios/test_frozen/F13_s17.json",
+      "seed": 17,
+      "sha256": "f07e4f2ba3b450d0dfe1ad59918221f3a96174dddf940813a0187a6b3fe6a1b8",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F13",
+      "path": "scenarios/test_frozen/F13_s42.json",
+      "seed": 42,
+      "sha256": "17cd1ad6986ec48075c49618ccb461d9e325b08b1a76a8406d6960585377d4b7",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F13",
+      "path": "scenarios/test_frozen/F13_s101.json",
+      "seed": 101,
+      "sha256": "1a7bc0eedfed27295c99602c04dc5f6eff4f1037fe8632383a62b8a49fcc8916",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F14",
+      "path": "scenarios/test_frozen/F14_s17.json",
+      "seed": 17,
+      "sha256": "394e0e715463dc1348dd7a1bcd6729bd424d9761be03793f8c0ba44b31ffa2e1",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F14",
+      "path": "scenarios/test_frozen/F14_s42.json",
+      "seed": 42,
+      "sha256": "7f4bdac465e3b443dd867ed7972cae8bfe752816590b580bf7452d0d2c28112b",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F14",
+      "path": "scenarios/test_frozen/F14_s101.json",
+      "seed": 101,
+      "sha256": "2fa68dc739096aa70c5a7e62a99ad83e8524446116bba64aa89fd6e8617a1577",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F15",
+      "path": "scenarios/test_frozen/F15_s17.json",
+      "seed": 17,
+      "sha256": "4f061c62b32f93e4bcba8efefe3ddc30573af0f9df033c576e3b7b22a66beb7e",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F15",
+      "path": "scenarios/test_frozen/F15_s42.json",
+      "seed": 42,
+      "sha256": "da15bb2d429f0d8a34a6d0986ad4700de164e012bb199130d464b4b4351659c5",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F15",
+      "path": "scenarios/test_frozen/F15_s101.json",
+      "seed": 101,
+      "sha256": "8d52c72219a6d2d2135762b725662348d009598a6c7fc048c7b53edcd1abb855",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F16",
+      "path": "scenarios/test_frozen/F16_s17.json",
+      "seed": 17,
+      "sha256": "8a95a3d7074e47261d5128032df8fbadd58ec8b45e586995943cb276d6bba82a",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F16",
+      "path": "scenarios/test_frozen/F16_s42.json",
+      "seed": 42,
+      "sha256": "aaf82a6963b02f4624c0d214975d787dcada76bec399a2b444a505724e6de349",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F16",
+      "path": "scenarios/test_frozen/F16_s101.json",
+      "seed": 101,
+      "sha256": "952939bc74c5c5852c90f11597aa6bf0877cf3ca5930fa0dad4962ca70586da2",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F17",
+      "path": "scenarios/test_frozen/F17_s17.json",
+      "seed": 17,
+      "sha256": "1798d7ed952193fe283f82e6ac8c82b9c01a10806bd17f82c0ddd1903722e985",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F17",
+      "path": "scenarios/test_frozen/F17_s42.json",
+      "seed": 42,
+      "sha256": "c405b3cf65980d44ebc83ec44b5be48663d65b7a3c5308ee9ae21d4f2bafbeb0",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F17",
+      "path": "scenarios/test_frozen/F17_s101.json",
+      "seed": 101,
+      "sha256": "8eb1dba38a4503bec9e0d4f4e1eec21c4fb2e668af622eaebdd11586ad19f143",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F18",
+      "path": "scenarios/test_frozen/F18_s17.json",
+      "seed": 17,
+      "sha256": "612d35b07fb1d7d0c54e42dc91c4c1975168bbcddbaed614f72e25ec8ee71dea",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F18",
+      "path": "scenarios/test_frozen/F18_s42.json",
+      "seed": 42,
+      "sha256": "c9a6d68e916f11fe24197621256b68032e73913d5d86ecf77682adddfc2c0e09",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F18",
+      "path": "scenarios/test_frozen/F18_s101.json",
+      "seed": 101,
+      "sha256": "414c94736eb9fcee9002bf1709b8de45de7b7f173b5b5194898ce5732d1cfe06",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F19",
+      "path": "scenarios/test_frozen/F19_s17.json",
+      "seed": 17,
+      "sha256": "220aefa0cbaaeb31a56bc89b038414f7e9961239f7e2c745e33c37a439353ca2",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F19",
+      "path": "scenarios/test_frozen/F19_s42.json",
+      "seed": 42,
+      "sha256": "afe4e4a8e684a1857fc10601d2d648d7a0af6be1a6c622481444637dc8b4f581",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F19",
+      "path": "scenarios/test_frozen/F19_s101.json",
+      "seed": 101,
+      "sha256": "ec37f7854145ce081808f40499ce7a12f94f913b008b7941343a9d2b14e61bfb",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F20",
+      "path": "scenarios/test_frozen/F20_s17.json",
+      "seed": 17,
+      "sha256": "33b326a6f285bf0334eaca01242e855f95454c2314daa701e774e71aeb9b9bdc",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F20",
+      "path": "scenarios/test_frozen/F20_s42.json",
+      "seed": 42,
+      "sha256": "5225a9d3d6dcaa67ab045ca30d76801eec72e9b1ee97e96b3e040e549bab6d30",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F20",
+      "path": "scenarios/test_frozen/F20_s101.json",
+      "seed": 101,
+      "sha256": "cddd254b8c212970d17286a710acbae50ab6cd3b66a7a5db23eeab899479ed9f",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F21",
+      "path": "scenarios/test_frozen/F21_s17.json",
+      "seed": 17,
+      "sha256": "b8a5e7ab164f2022e91af8f1f5fba3f77309efc0aca908a4c9a3a75baece1cd5",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F21",
+      "path": "scenarios/test_frozen/F21_s42.json",
+      "seed": 42,
+      "sha256": "b0c32c30dfc77a2f3a470a6d6a66dc3aad0ec8abbbd7921ec9c30e872b28de4a",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F21",
+      "path": "scenarios/test_frozen/F21_s101.json",
+      "seed": 101,
+      "sha256": "8c0d056660157040c669929f4688249926aca0768529dae2797d04d85e797f5f",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F22",
+      "path": "scenarios/test_frozen/F22_s17.json",
+      "seed": 17,
+      "sha256": "f0f8c620ff51de22c39796306f53285eb070a72a5001185467d3e6917160298c",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F22",
+      "path": "scenarios/test_frozen/F22_s42.json",
+      "seed": 42,
+      "sha256": "1d61903aa7c2430c2d1c0b0f292a259fa37c70f9dd29e146d81d0d94f0403af9",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F22",
+      "path": "scenarios/test_frozen/F22_s101.json",
+      "seed": 101,
+      "sha256": "e582eae00b6b6e20be001504e6ee49e9180e9c60c2cd64fe9a9c287834c715a5",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F23",
+      "path": "scenarios/test_frozen/F23_s17.json",
+      "seed": 17,
+      "sha256": "3b84b3064fd0fd7bcc880a4e1713d1f14cb4d5faaeaf56a39b55870b1c6c493b",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F23",
+      "path": "scenarios/test_frozen/F23_s42.json",
+      "seed": 42,
+      "sha256": "08a426c4d458ea871019a7cd2756fba7429e5b715169723e46643d955d653509",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F23",
+      "path": "scenarios/test_frozen/F23_s101.json",
+      "seed": 101,
+      "sha256": "4b02d262951acfa27d17d05e450063598612c7d15914ff5d1850ce8490dd0e57",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F24",
+      "path": "scenarios/test_frozen/F24_s17.json",
+      "seed": 17,
+      "sha256": "3b47abb3c7608f7ac4e5a3db94b9ba4ee451b1841293fe4fbd9a043915435585",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F24",
+      "path": "scenarios/test_frozen/F24_s42.json",
+      "seed": 42,
+      "sha256": "5303af678f7120026e82c3f3570f8bd48c36f0067c41a20c4bac89f192416f00",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F24",
+      "path": "scenarios/test_frozen/F24_s101.json",
+      "seed": 101,
+      "sha256": "c43cb1191666f13678c4c42ea4210e28e7ed2131b756578b24783c454c50fb8f",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F25",
+      "path": "scenarios/test_frozen/F25_s17.json",
+      "seed": 17,
+      "sha256": "5a2c59b4a50e8a87eab8dfe3bb958839f3fb0c89f4e19139e4143f762e25d2e7",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F25",
+      "path": "scenarios/test_frozen/F25_s42.json",
+      "seed": 42,
+      "sha256": "3b5c7c16052d45f4508b6e1cef4061ebc784e2bbd12b4f71d631140a47817f71",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F25",
+      "path": "scenarios/test_frozen/F25_s101.json",
+      "seed": 101,
+      "sha256": "e026d11156df4f37376b0f7aa7e3af1c2f34a96c4100e58a7c542f66a4ef2532",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F26",
+      "path": "scenarios/test_frozen/F26_s17.json",
+      "seed": 17,
+      "sha256": "60089e23a6954844aaee50c4cd07dfa1c8a50ea4de2d2ee306ddf0f73b89e099",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F26",
+      "path": "scenarios/test_frozen/F26_s42.json",
+      "seed": 42,
+      "sha256": "ad6ca300fbc38b78777e8c5c2bc5e9980aacc066e6f9e260589d5f917c6e73b4",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F26",
+      "path": "scenarios/test_frozen/F26_s101.json",
+      "seed": 101,
+      "sha256": "6ac45bdd3f4cbbeeb786447781945accd6eb6de342a9d3ee1163460e925fc86d",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F27",
+      "path": "scenarios/test_frozen/F27_s17.json",
+      "seed": 17,
+      "sha256": "4329d299c70f0a7c7d311d689eecd3035eb05f02e4884b196d4be53ef01d1ebd",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F27",
+      "path": "scenarios/test_frozen/F27_s42.json",
+      "seed": 42,
+      "sha256": "ac073a8d1ea06ef5adffc987df5e941c847cee7781c0884689e3188f774ad8f0",
+      "split": "test_frozen"
+    },
+    {
+      "family_id": "F27",
+      "path": "scenarios/test_frozen/F27_s101.json",
+      "seed": 101,
+      "sha256": "38d3cff9e84ff4a1cfda430d33e71e8f58788c0cbf7cca0b65c5a758a3f4b6c3",
+      "split": "test_frozen"
+    }
+  ],
+  "freshness_grid": [
+    0,
+    30,
+    120,
+    300
+  ],
+  "generator_sha256": "ae90864423eadbcddd5fd6a225f8138a8dbee00d2fd4a5bc14191ee92fbc56e7",
+  "held_out_families": 15,
+  "note": "Deterministic repeats validate reproducibility; not independent statistical samples.",
+  "oracle": "Manual authoritative labels in fixtures, separately checked by Python oracle; same AI engineer, no independent human review",
+  "repeats": 3,
+  "schema": "proofmesh-freeze-1",
+  "seeds": [
+    17,
+    42,
+    101
+  ],
+  "source_license": "Synthetic fixtures generated locally; public licensing pending human IP approval",
+  "status": "prospective-freeze; unapproved exploratory diagnostics only"
+}

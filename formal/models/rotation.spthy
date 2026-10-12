@@ -1,0 +1,42 @@
+theory ProofMeshRotation
+begin
+builtins: signing
+// Finite two-version abstraction; 'v1'/'v2' model authenticated sequence 11/12.
+rule Setup:
+ [ Fr(~root),Fr(~old),Fr(~new),Fr(~handle),Fr(~state) ]
+ --[ Init($d),StateBorn(~state) ]->
+ [ !Root($d,~root),!Handle($d,~handle),!Keys($d,~old,~new),Cache(~handle,$d,~old,'v1',~state),
+   Out(sign(<'bundle',$d,~old,'v1'>,~root)) ]
+restriction Unique:
+ "All d #i #j. Init(d)@i & Init(d)@j ==> #i = #j"
+rule PublishNew:
+ [ !Root(d,r),!Keys(d,old,new) ]
+ --[ Published(d,new,'v2') ]->
+ [ Out(sign(<'bundle',d,new,'v2'>,r)) ]
+rule DeliverNew:
+ [ !Handle(d,handle),Cache(handle,d,old,'v1',state),Fr(~next),!Root(d,r),!Keys(d,old,new),
+   In(sign(<'bundle',d,new,'v2'>,r)) ]
+ --[ StateUsed(state),StateBorn(~next),ActiveRead(d,old,'v1'),Advance(d,'v1','v2'),KnownRevoked(d,old) ]->
+ [ Cache(handle,d,new,'v2',~next), !HighWater(d,'v2') ]
+rule ReplayOld:
+ [ !HighWater(d,'v2'),!Root(d,r),!Keys(d,old,new),
+   In(sign(<'bundle',d,old,'v1'>,r)) ]
+ --[ RollbackRejected(d,'v2','v1') ]-> [ ]
+rule AcceptV1:
+ [ !Handle(d,handle),Cache(handle,d,k,'v1',state),!Keys(d,k,new),Fr(~next) ] --[ StateUsed(state),StateBorn(~next),ActiveRead(d,k,'v1'),Accept(d,k,'v1') ]-> [ Cache(handle,d,k,'v1',~next) ]
+rule AcceptV2:
+ [ !Handle(d,handle),Cache(handle,d,k,'v2',state),!Keys(d,old,k),Fr(~next) ] --[ StateUsed(state),StateBorn(~next),ActiveRead(d,k,'v2'),Accept(d,k,'v2') ]-> [ Cache(handle,d,k,'v2',~next) ]
+lemma state_token_consumption_unique [sources,reuse]:
+ "All state #i #j. StateUsed(state)@i & StateUsed(state)@j ==> #i = #j"
+
+lemma exists_rotation:
+ exists-trace
+ "Ex d k #a #i. Advance(d,'v1','v2')@a & Accept(d,k,'v2')@i & #a < #i"
+lemma rollback_rejected [use_induction]:
+ "All d k #a #i. Advance(d,'v1','v2')@a & Accept(d,k,'v1')@i ==> #i < #a"
+lemma no_accept_after_known_revocation [use_induction]:
+ "All d k v #r #i. KnownRevoked(d,k)@r & Accept(d,k,v)@i ==> #i < #r"
+lemma exists_rejected_replay:
+ exists-trace
+ "Ex d #i. RollbackRejected(d,'v2','v1')@i"
+end

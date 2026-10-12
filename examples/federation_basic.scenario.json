@@ -1,0 +1,98 @@
+{
+  "schema_version": "proofmesh-sim-1",
+  "scenario_id": "F02_s17",
+  "family_id": "F02",
+  "seed": 17,
+  "synthetic_only": true,
+  "config": {
+    "local_domain": "alpha.local",
+    "federated": [
+      "beta.local"
+    ],
+    "freshness_budget": 120,
+    "epoch": 1,
+    "require_pq": false,
+    "rules": [
+      {
+        "source": "spiffe://alpha.local/api-a",
+        "target": "spiffe://alpha.local/db",
+        "action": "read"
+      },
+      {
+        "source": "spiffe://beta.local/api-b",
+        "target": "spiffe://alpha.local/db",
+        "action": "read"
+      }
+    ]
+  },
+  "initial_bundles": [
+    {
+      "domain": "alpha.local",
+      "issuers": [
+        "a1"
+      ],
+      "sequence": 1,
+      "epoch": 1,
+      "authenticated": true
+    },
+    {
+      "domain": "beta.local",
+      "issuers": [
+        "b1"
+      ],
+      "sequence": 1,
+      "epoch": 1,
+      "authenticated": true
+    }
+  ],
+  "credentials": [
+    {
+      "name": "a",
+      "id": "spiffe://alpha.local/api-a",
+      "issuer_domain": "alpha.local",
+      "issuer": "a1",
+      "not_before": 0,
+      "not_after": 1000,
+      "signature_valid": true,
+      "auth_profile": "classical"
+    },
+    {
+      "name": "b",
+      "id": "spiffe://beta.local/api-b",
+      "issuer_domain": "beta.local",
+      "issuer": "b1",
+      "not_before": 0,
+      "not_after": 1000,
+      "signature_valid": true,
+      "auth_profile": "classical"
+    },
+    {
+      "name": "new",
+      "id": "spiffe://alpha.local/api-a",
+      "issuer_domain": "alpha.local",
+      "issuer": "a2",
+      "not_before": 0,
+      "not_after": 1000,
+      "signature_valid": true,
+      "auth_profile": "classical"
+    }
+  ],
+  "events": [
+    {
+      "at": 1,
+      "type": "REQUEST_AUTH",
+      "credential_name": "b",
+      "source": "spiffe://beta.local/api-b",
+      "target": "spiffe://alpha.local/db",
+      "audience": "spiffe://alpha.local/db",
+      "action": "read",
+      "request_id": "r1",
+      "key_exchange_profile": "classical",
+      "expected": {
+        "outcome": "ACCEPT",
+        "reason": "AUTHORIZED"
+      },
+      "oracle_authorized": true
+    }
+  ]
+}

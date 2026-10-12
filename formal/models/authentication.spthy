@@ -1,0 +1,101 @@
+theory ProofMeshAuthentication
+begin
+builtins: signing
+
+// Cache facts are exact-domain and linear; authenticated setup is trusted.
+// Fresh state-instance tags instrument lock release only, not messages or crypto.
+// Erasing internal handles/tags projects to the serial cache.
+// A stable fresh first-argument handle exposes the injective store instance
+// to Tamarin; final security statements and accepted trace predicates are unchanged.
+rule Setup:
+ [ Fr(~issuer), Fr(~handle), Fr(~state) ]
+ --[ Register($d),IssuerRegistered($d,~issuer),StateBorn(~state) ]->
+ [ !Issuer($d,~issuer),!IssuerHandle($d,~issuer,~handle), Cache(~handle,$d,~issuer,~state), Out(pk(~issuer)) ]
+
+restriction UniqueDomain:
+ "All d #i #j. Register(d)@i & Register(d)@j ==> #i = #j"
+
+rule ConfigurePolicy:
+ [ !Issuer(d,k) ] --> [ !Allowed(<d,$path>,$service) ]
+
+rule Issue:
+ [ !Issuer(d,k), !Allowed(<d,path>,svc), Fr(~w) ]
+ --[ Issue(<d,path>,d,k) ]->
+ [ !Workload(<d,path>,~w),
+   Out(<<d,path>,pk(~w),sign(<'svid',<d,path>,pk(~w)>,k)>) ]
+
+// Challenge preparation verifies a certificate with the stable issuer root.
+// Final Accept still consumes the active exact-domain cache.
+// This removes a redundant state loop from preparation; revoked roots cannot accept.
+rule Request:
+ [ !Issuer(d,k), !Allowed(<d,path>,svc), Fr(~sid),
+   In(<<d,path>,wp,sign(<'svid',<d,path>,wp>,k)>)[+] ]
+ --[ RequestVerified(~sid,<d,path>,svc,d,k), Authorized(<d,path>,svc) ]->
+ [ Pending(~sid,d,k,<d,path>,svc,wp), Out(<~sid,svc>) ]
+
+rule Respond:
+ [ !Workload(id,w), In(<sid,svc>) ]
+ --[ Respond(sid,id,svc) ]->
+ [ Out(<sid,id,sign(<'session',sid,id,svc>,w)>) ]
+
+// Crypto validation is separated from the final policy commit. The verified
+// session fact is private and linear; the final active-cache gate is unchanged.
+rule VerifyResponse:
+ [ Pending(sid,d,k,id,svc,wp), In(<sid,id,sig>)[+] ]
+ --[ Eq(verify(sig,<'session',sid,id,svc>,wp),true) ]->
+ [ VerifiedSession(sid,id,svc,d,k) ]
+
+rule Accept:
+ [ !IssuerHandle(d,k,handle),Cache(handle,d,k,state)[-],VerifiedSession(sid,id,svc,d,k),Fr(~next) ]
+ --[ StateUsed(state),StateBorn(~next),ActiveRead(d,k),Accept(sid,id,svc,d,k) ]->
+ [ Cache(handle,d,k,~next) ]
+
+rule RevokeDelivered:
+ [ !IssuerHandle(d,k,handle),Cache(handle,d,k,state) ] --[ StateUsed(state),KnownRevoked(d,k) ]-> [ Revoked(d,k) ]
+
+rule CompromiseIssuer:
+ [ !Issuer(d,k) ] --[ IssuerCompromised(d) ]-> [ Out(k) ]
+
+restriction SignatureChecks:
+ "All x y #i. Eq(x,y)@i ==> x = y"
+
+// The issuer signature is matched directly with an already bound issuer key.
+// Workload private keys are never extracted from public keys by the verifier.
+
+lemma cache_key_origin [sources]:
+ "All d k #i. ActiveRead(d,k)@i ==> (Ex #j. IssuerRegistered(d,k)@j & #j < #i)"
+
+lemma revocation_key_origin [sources]:
+ "All d k #i. KnownRevoked(d,k)@i ==> (Ex #j. IssuerRegistered(d,k)@j & #j < #i)"
+
+lemma state_token_consumption_unique [sources,reuse]:
+ "All state #i #j. StateUsed(state)@i & StateUsed(state)@j ==> #i = #j"
+
+// Instrument every cache-preserving transition, so induction can cover the
+// state loop independently of credential/session verification.
+lemma request_credential_origin [reuse]:
+ "All sid id svc d k #i. RequestVerified(sid,id,svc,d,k)@i ==> (Ex #j. Issue(id,d,k)@j & #j < #i) | (Ex #c. IssuerCompromised(d)@c & #c < #i)"
+
+lemma exists_accept_honest:
+ exists-trace
+ "Ex sid id svc d k #i. Accept(sid,id,svc,d,k)@i & not (Ex #c. IssuerCompromised(d)@c)"
+
+lemma accept_implies_authorized [use_induction]:
+ "All sid id svc d k #i. Accept(sid,id,svc,d,k)@i ==> (Ex #a #j. Authorized(id,svc)@a & Issue(id,d,k)@j & #a < #i & #j < #i) | (Ex #c. IssuerCompromised(d)@c & #c < #i)"
+
+lemma session_agreement [use_induction]:
+ "All sid id svc d k #i. Accept(sid,id,svc,d,k)@i ==> (Ex #r. Respond(sid,id,svc)@r & #r < #i) | (Ex #c. IssuerCompromised(d)@c & #c < #i)"
+
+lemma session_accept_is_injective:
+ "All sid id1 svc1 d1 k1 id2 svc2 d2 k2 #i #j. Accept(sid,id1,svc1,d1,k1)@i & Accept(sid,id2,svc2,d2,k2)@j ==> #i = #j"
+
+lemma no_cross_domain_substitution:
+ "All sid id svc d k #i. Accept(sid,id,svc,d,k)@i ==> (Ex path. id = <d,path>)"
+
+lemma no_accept_after_known_revocation [use_induction]:
+ "All sid id svc d k #r #i. KnownRevoked(d,k)@r & Accept(sid,id,svc,d,k)@i ==> #i < #r"
+
+// Expected counterexample: a compromised issuer can certify an attacker key.
+lemma unconditional_authentication_negative_control:
+ "All sid id svc d k #i. Accept(sid,id,svc,d,k)@i ==> (Ex #j. Issue(id,d,k)@j & #j < #i)"
+end

@@ -1,0 +1,114 @@
+{
+  "config": {
+    "epoch": 1,
+    "federated": [
+      "beta.local"
+    ],
+    "freshness_budget": 120,
+    "local_domain": "alpha.local",
+    "require_pq": false,
+    "rules": [
+      {
+        "action": "read",
+        "source": "spiffe://alpha.local/api-a",
+        "target": "spiffe://alpha.local/db"
+      },
+      {
+        "action": "read",
+        "source": "spiffe://beta.local/api-b",
+        "target": "spiffe://alpha.local/db"
+      }
+    ]
+  },
+  "credentials": [
+    {
+      "auth_profile": "classical",
+      "id": "spiffe://alpha.local/api-a",
+      "issuer": "a1",
+      "issuer_domain": "alpha.local",
+      "name": "a",
+      "not_after": 1000,
+      "not_before": 0,
+      "signature_valid": true
+    },
+    {
+      "auth_profile": "classical",
+      "id": "spiffe://beta.local/api-b",
+      "issuer": "b1",
+      "issuer_domain": "beta.local",
+      "name": "b",
+      "not_after": 1000,
+      "not_before": 0,
+      "signature_valid": true
+    },
+    {
+      "auth_profile": "classical",
+      "id": "spiffe://alpha.local/api-a",
+      "issuer": "a2",
+      "issuer_domain": "alpha.local",
+      "name": "new",
+      "not_after": 1000,
+      "not_before": 0,
+      "signature_valid": true
+    }
+  ],
+  "events": [
+    {
+      "action": "read",
+      "at": 1,
+      "audience": "spiffe://alpha.local/db",
+      "credential_name": "a",
+      "expected": {
+        "outcome": "ACCEPT",
+        "reason": "AUTHORIZED"
+      },
+      "key_exchange_profile": "classical",
+      "oracle_authorized": true,
+      "request_id": "repeated",
+      "source": "spiffe://alpha.local/api-a",
+      "target": "spiffe://alpha.local/db",
+      "type": "REQUEST_AUTH"
+    },
+    {
+      "action": "read",
+      "at": 2,
+      "audience": "spiffe://alpha.local/db",
+      "credential_name": "a",
+      "expected": {
+        "outcome": "REJECT",
+        "reason": "REPLAY"
+      },
+      "key_exchange_profile": "classical",
+      "oracle_authorized": false,
+      "request_id": "repeated",
+      "source": "spiffe://alpha.local/api-a",
+      "target": "spiffe://alpha.local/db",
+      "type": "REQUEST_AUTH"
+    }
+  ],
+  "family_id": "F23",
+  "initial_bundles": [
+    {
+      "authenticated": true,
+      "domain": "alpha.local",
+      "epoch": 1,
+      "issuers": [
+        "a1"
+      ],
+      "sequence": 1
+    },
+    {
+      "authenticated": true,
+      "domain": "beta.local",
+      "epoch": 1,
+      "issuers": [
+        "b1"
+      ],
+      "sequence": 1
+    }
+  ],
+  "scenario_id": "F23_s42",
+  "schema_version": "proofmesh-sim-1",
+  "seed": 42,
+  "synthetic_only": true
+}

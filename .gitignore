@@ -1,0 +1,17 @@
+.tools/
+.cache/
+bin/
+__pycache__/
+*.pyc
+*.pem
+*.key
+*.p12
+.env*
+experiments/raw/
+experiments/reports/
+experiments/MANIFEST.json
+experiments/manifests/go-toolchain.json
+docs/RESEARCH_RESULTS.md
+formal/proof_logs/
+formal/source_snapshots/
+work/

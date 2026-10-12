@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Cite as experimental software. This public companion does not establish independent scientific review or a new license grant."
+title: "ProofMesh: workload identity and trust-rotation research companion"
+type: software
+version: "public-companion-1"
+authors:
+  - name: "ProofMesh Research contributors"
+repository-code: "https://github.com/Lefzach73/proofmesh"
+url: "https://lefteriszach.com"
+abstract: "Offline deterministic workload-authorization evaluation with separate optional SPIFFE integration and explicit evidence limitations."

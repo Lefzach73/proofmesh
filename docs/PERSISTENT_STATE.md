@@ -1,0 +1,23 @@
+# Durable local security state
+
+`proofmesh state update --file PATH --domain alpha.local --at 12 --bundle INPUT.json` persists an accepted synthetic bundle update. `state show --file PATH` loads it; `state remove --file PATH --domain alpha.local --at 13` removes the snapshot while retaining its sequence/epoch watermark. Inputs require synthetic_only=true; this CLI does not validate real bundle signatures. The API is a local persistence adapter, not an automatically deployed security server.
+
+Records retain per-domain bundle contents, optional sequence, epoch, fetched-at time, removed-domain tombstones and a clock high watermark. A lower sequence, missing learned sequence, equal-sequence content change or backward clock fails closed. Missing initialized state, corruption, unknown JSON fields, duplicate keys, non-regular files and unsafe read permissions fail without rebuilding empty trust.
+
+A filesystem advisory lock serializes writers on macOS/Linux and releases on process termination. Each accepted mutation writes an owner-only temporary file, fsyncs it, atomically renames it, syncs the parent directory, and persists/syncs an initialized marker. Success is reported only after these steps. A complete-file checksum detects accidental corruption. **Trusted local storage is assumed:** an owner replacing an entire valid old state AND the marker is outside this guarantee; the checksum is not authentication or hardware anti-rollback. No private keys are stored.
+
+Tests cover reload/restart sequence 12→11 rejection, removal/reload tombstone preservation, corruption, deletion, clock rollback, concurrent writers retaining the maximum sequence, unsafe file modes and unpublished interrupted temporary writes. `make restart-demo` uses separate executable OS processes and records the successful 12 / rejected 11 update plus restored 12 watermark in experiments/reports/progress-0.2/restart.json. `make test race` validates the adapter with the core.
+
+Additional regressions exposed and repaired a write/read mismatch: oversized issuer IDs, excessive issuer sets and snapshots fetched after the checkpoint clock could previously be acknowledged, then fail the next load. Save now runs the same semantic validation as Load before publishing any file. Failed mutations leave the acknowledged checkpoint byte-identical and usable. Initialization uses lstat for the marker and treats unexpected inspection errors as failures; a dangling initialized-marker symlink cannot masquerade as fresh state. Original failing checks are retained in the private provenance archive and are not included in this public companion.
+
+On macOS/Linux, controlled child processes are now killed with actual SIGKILL at three boundaries: while holding the writer lock before save, after an acknowledged commit, and after an acknowledged removal. Tests verify the real signal, lock exclusion before the crash, lock release after death, the expected sequence/clock/tombstone, subsequent rollback rejection and legitimate recovery. This tests process termination, not sudden power loss at every filesystem instruction or malicious disk replacement. No production process is signalled.
+
+The original private factorial durability diagnostic gives both B2 and B3 the same persistence option and retains safety/availability regressions. Persistence of already learned state must not be presented as discovery of hidden remote changes.
+
+This optional adapter does not change the default virtual-clock simulator or its original results. Integrating it into a long-running real verifier with atomic final decision/update coordination remains a separate production-engineering question, not a proof that any stale snapshot passed by a caller is safe.
+
+## Real application adapter
+
+The later opt-in integration in the original private durable-live study reuses this checkpoint implementation for real public CA hashes and metadata, with synced public DER objects and a lifetime gate lease. It preserves learned removals across actual process SIGKILL/restart and never persists SVID private keys. Its original volatile comparator remains unchanged; handler counters and arbitrary business transactions are not made durable by this adapter.
+
+The full serialized file, including its trailing newline, must fit the 4 MiB load bound. Valid UTF-8 issuer identifiers are required so JSON serialization cannot replace or collapse them. Boundary and invalid-encoding regressions demonstrate rejection before acknowledgment/publication, retaining a loadable prior checkpoint. Historical pre-fix failures remain in the private archive.
